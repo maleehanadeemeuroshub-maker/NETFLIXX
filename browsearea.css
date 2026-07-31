@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* background-color: black; */
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+     background-color: black; 
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes marqueeScroll {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+.marquee{
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(90deg, #000, #dc030f22, #000);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 8px 0;
+    white-space: nowrap;
+    margin-top: 60px;
+}
+.marquee__content{
+    display: inline-block;
+    white-space: nowrap;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    animation: marqueeScroll 20s linear infinite;
+}
+
+.container .head {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    z-index: 1000000;
+    animation: fadeInDown 0.8s ease both;
+}
+
+.container .head img{
+    width: 100px;
+    max-width: 30%;
+}
+.container .head a{
+    color: #fff;
+    text-decoration: none;
+    background-color: #dc030f;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+.no{
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    padding-bottom: 6px;
+}
+.no a{
+    text-decoration: none;
+    display: inline-block;
+}
+.no img{
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    animation: fadeIn 0.9s ease both;
+    transition: transform 0.35s ease-in-out, filter 0.35s ease-in-out;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: clamp(120px, 40vw, 250px);
+    height: auto;
+}
+.no img:hover{
+    transform: scale(1.08);
+    filter: brightness(80%);
+}
+
+h3{
+    padding: 10px 20px 0;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 600px){
+    h3{
+        font-size: 1rem;
+        padding: 8px 12px 0;
+    }
+    .marquee{
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 380px){
+    .container .head{
+        padding: 8px 12px;
+    }
+    .container .head img{
+        width: 80px;
+    }
+    .container .head a{
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}
+html{
+    overflow:scroll;
+    overflow-x:hidden;
+}
+::-webkit-scrollbar{
+    width: 0px;
+    background: transparent;
+}

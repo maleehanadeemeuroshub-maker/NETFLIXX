@@ -1,0 +1,246 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* background-color: black; */
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+     background-color: black; 
+}
+.container{
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(35px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes marqueeScroll {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 rgba(220,3,15,0); }
+    50% { box-shadow: 0 0 14px rgba(220,3,15,0.7); }
+}
+
+.marquee{
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(90deg, #000, #dc030f22, #000);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 8px 0;
+    white-space: nowrap;
+}
+.marquee__content{
+    display: inline-block;
+    white-space: nowrap;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    animation: marqueeScroll 20s linear infinite;
+}
+
+.head img{
+    position: relative;
+    width: 130px;
+    max-width: 30%;
+    z-index: 1;
+    margin-left: 10px;
+    margin-top: -15px;
+    margin-bottom: -14px;
+}
+.home-image{
+    background-image: url(img/hoome.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: clamp(220px, 45vh, 480px);
+    border-radius: clamp(10px, 3vw, 20px);
+    position: relative;
+    filter: brightness();
+    animation: fadeIn 1.2s ease both;
+}
+.home-image-text{
+    color: aliceblue;
+    position: relative;
+    width: min(80%, 320px);
+    top: clamp(1.5em, 6vw, 4em);
+    left: clamp(0.8em, 3vw, 1.2em);
+    z-index: 1;
+    animation: fadeInUp 1s ease both;
+    animation-delay: 0.25s;
+}
+.home-image-text p{
+    font-size: clamp(12px, 2.4vw, 16px);
+}
+.money{
+    width: min(100%, 260px);
+    height: auto;
+}
+.play-button{
+    background-color: red;
+    color: black;
+    border-radius: 4px;
+    width: clamp(55px, 12vw, 70px);
+    padding: 5px 20px 0px;
+    font-size: clamp(16px, 3.2vw, 25px);
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    animation: pulseGlow 2.4s ease-in-out infinite;
+}
+.play-button:hover{
+    transform: scale(1.08);
+}
+.play-button img{
+    margin-top: 0px;
+    padding-left: 5px;
+    width: 25px;
+    position: absolute;
+}
+/* netflix original and top rated */
+.original{
+    color: aliceblue;
+    padding-left: 0px;
+
+}
+.original h3{
+    margin-top: 10px;
+    animation: fadeInDown 0.8s ease both;
+}
+.original .no-title{
+    font-size: 20px;
+    padding-left: 10px;
+    color: #fff;
+    line-height: 1px;
+    font-weight: 5px;
+    margin-bottom: 19px;
+
+}
+.original .no{
+    display: flex;
+    height: auto;
+    padding-top: 2px;
+    padding-bottom: 8px;
+    margin-left: 0px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+}
+
+.original .no a{
+    text-decoration: none;
+    display: inline-block;
+}
+.original .no img{
+    width: clamp(140px, 30vw, 260px);
+    aspect-ratio: 2 / 3;
+    height: auto;
+    object-fit: cover;
+    margin:3px;
+    margin-left: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    animation: fadeIn 0.8s ease both;
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+.original .no img:hover{
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+html{
+    overflow:scroll;
+    overflow-x:hidden;
+}
+::-webkit-scrollbar{
+    width: 2px;
+    background: transparent;
+}
+/* comedy and romatic movies */
+.original1{
+    color: aliceblue;
+    padding-left: 0px;
+
+}
+.original1 h3{
+    margin-top: 10px;
+    animation: fadeInDown 0.8s ease both;
+}
+.original1 .no-title{
+    font-size: 20px;
+    padding-left: 10px;
+    color: #fff;
+    line-height: 1px;
+    font-weight: 5px;
+    margin-bottom: 19px;
+
+}
+.original1 .no{
+    display: flex;
+    height: auto;
+    padding-top: 2px;
+    padding-bottom: 8px;
+    margin-left: 0px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+}
+
+.original1 .no a{
+    text-decoration: none;
+    display: inline-block;
+}
+.original1 .no img{
+    width: clamp(100px, 22vw, 160px);
+    aspect-ratio: 4 / 7;
+    height: auto;
+    object-fit: cover;
+    margin:3px;
+    margin-left: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    animation: fadeIn 0.8s ease both;
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+.original1 .no img:hover{
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+@media (max-width: 600px){
+    .original .no-title,
+    .original1 .no-title{
+        font-size: 16px;
+    }
+    .play-button img{
+        width: 18px;
+    }
+}
+
+@media (max-width: 380px){
+    .head img{
+        width: 100px;
+        margin-top: -10px;
+        margin-bottom: -10px;
+    }
+}
